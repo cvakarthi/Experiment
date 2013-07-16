@@ -2,6 +2,25 @@
 <html>
   <head>
     <title>Knob Control</title>
+    <script>
+    var onDeviceFound = function(device) {
+  if (device) {
+     console.log("Device found: "+device.handle);
+  } else {
+     console.log("Device could not be found");
+  }
+};
+
+var onUsbEvent = function(event) {
+     console.log("Got some message from the USB device!");
+};
+    
+      function detect()
+      {
+        
+chrome.usb.findDevice(vendorId, productId, {"onEvent": onUsbEvent}, onDeviceFound);
+      }
+    </script>
     <style>
       #knob {
         background-image: url();
@@ -16,10 +35,7 @@
   </head>
   <body>
     <h1><center>FIND DEVICE</center></h1>
-    <button id="requestPermission">Request permissions</button>
+    <button id="requestPermission" onclick="detect()">Request permissions</button>
     <div id="knob" style="display: none;"></div>
-    <script src="knob.js"></script>
-    
-    
   </body>
 </html>
