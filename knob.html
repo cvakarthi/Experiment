@@ -4,11 +4,13 @@
     <title>Knob Control</title>
     <script>
     var onDeviceFound = function(device) {
+      alert("USB 2nd function");
   if (device) {
      console.log("Device found: "+device.handle);
   } else {
      console.log("Device could not be found");
   }
+  alert("USB finished");
 };
 
 var onUsbEvent = function(event) {
@@ -17,8 +19,11 @@ var onUsbEvent = function(event) {
     
       function detect()
       {
+        alert("USB detection function triggered");
         
 chrome.usb.findDevice(vendorId, productId, {"onEvent": onUsbEvent}, onDeviceFound);
+
+        alert("USB detection finished");
       }
     </script>
     <style>
