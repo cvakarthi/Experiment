@@ -21,7 +21,7 @@ var onUsbEvent = function(event) {
       {
         alert("USB detection function triggered");
         
-chrome.usb.findDevice(vendorId, productId, {"onEvent": onUsbEvent}, onDeviceFound);
+chrome.usb.findDevice(1256, 26742, {"onEvent": onUsbEvent}, onDeviceFound);
 
         alert("USB detection finished");
       }
