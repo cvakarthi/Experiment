@@ -1,0 +1,13 @@
+{
+  "name": "Modem Detection",
+  "version": "0.1",
+  "manifest_version": 2,
+  "minimum_chrome_version": "23",
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "permissions": ["usb"],
+  "optional_permissions": [ {"usbDevices": [{"vendorId": 1256, "productId": 26742}]}]
+}
